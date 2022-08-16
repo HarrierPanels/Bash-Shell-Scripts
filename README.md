@@ -14,7 +14,7 @@ Features
 
 Folder structure:
 
-    /scripts          - the shell scripts that will configure your servers (see example below)
+    /scripts          - the shell scripts that will configure whatever is up, etc.
 
     /files (optional) - files to be transferred to servers (nginx.conf, ssh keys, database.yml, etc.)
 
