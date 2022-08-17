@@ -20,7 +20,7 @@ echo "Stopped by [PID]:"
 ps aux | grep case.sh | grep -v grep | awk '{print $2}'
 killall sleep 2>/dev/null
 #kill $(ps aux | grep sleep | grep -v grep | awk '{print $2}')
-case.sh start
+case_old.sh start
 ;;
 *)
 echo "usage: start | stop | restart"
