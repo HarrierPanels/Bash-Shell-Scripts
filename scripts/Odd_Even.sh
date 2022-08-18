@@ -14,7 +14,7 @@ else
         echo "The entered argument: $1 is Odd Number"
         fi
      else
-          if [[ $a == *[a-zA-Z] ]]; then
+          if [[ $a =~ [a-zA-Z] ]] && [[ $a != "[0-9]" ]]; then
              if (( ${#a} % 2 == 0 )); then
              echo "Letters in the argument: ${#a} (Even)"
              else
