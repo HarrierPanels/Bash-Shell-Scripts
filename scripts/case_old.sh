@@ -30,7 +30,7 @@ ps aux | grep $0 | grep -v grep | awk '{print $2}'
 for a in $(ps aux | grep $0 | grep -v grep | awk '{print $2}')
 do
 let "a=a+25"
-kill $a 2>/dev/null
+kill $a 2>/dev/null # omits stderr in case of restart without start
 done
 
 ## Fake Progress Bar ##
