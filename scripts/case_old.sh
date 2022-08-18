@@ -1,28 +1,54 @@
 #!/bin/bash
 
-# case usage
+# case statement usage
 # export PATH="~/:$PATH" ## current session path to where the file is located
+# ASCII text executable won't accept $! - PID of the background process
+# the child proccess incremented by 25 due to $ShellScript & the progress bar
+
+ShellScript=$(basename -- "$0")
 
 case $1 in
 start)
-echo "Started"
+echo "Starting $ShellScript"
+
+## Fake Progress Bar ##
+for i in {1..23}
+do sleep 0.1
+echo -n \#
+done
+echo
+echo "Press ENTER to continue"
+
 sleep 9999
 ;;
+
 stop)
-echo "Stopped by [PID]:"
-ps aux | grep case.sh | grep -v grep | awk '{print $2}'
-killall sleep 2>/dev/null
-exit 143
-#kill $(ps aux | grep case.sh | grep -v grep | awk '{print $2}')
+echo "Stopping $ShellScript by [PID]:"
+ps aux | grep $0 | grep -v grep | awk '{print $2}'
+
+# a more complicated way for killall sleep
+for a in $(ps aux | grep $0 | grep -v grep | awk '{print $2}')
+do
+let "a=a+25"
+kill $a 2>/dev/null
+done
+
+## Fake Progress Bar ##
+for i in {1..23}
+do sleep 0.1
+echo -n \.
+done
+echo
+
 ;;
+
 restart)
-echo "Stopped by [PID]:"
-ps aux | grep case.sh | grep -v grep | awk '{print $2}'
-killall sleep 2>/dev/null
-#kill $(ps aux | grep sleep | grep -v grep | awk '{print $2}')
-case_old.sh start
+$ShellScript stop
+$ShellScript start
 ;;
+
 *)
-echo "usage: start | stop | restart"
+echo "$ShellScript usage: start | stop | restart"
 ;;
+
 esac
