@@ -1,20 +1,24 @@
-#!/bin/bash
+##!//bin/bash
+
+# case usage
+# export PATH="~/:$PATH" ## current session path to where the file is located
+# ASCII text (no shebang) accepts $! - PID of the background process yet ps won't work correctly
 
 case $1 in
 start)
-echo "Started"
+echo "$0 Started"
 sleep 9999
 ;;
 stop)
-echo "Stopped by [PID]: $!"
+echo "$0 Stopped by [PID]: $!"
 kill $!
+killall sleep
 ;;
 restart)
-echo "Stopped by [PID]: $!"
-kill $!
-case0.sh start
+$0 stop
+$0 start
 ;;
 *)
-echo "usage: start | stop | restart"
+echo "$0 usage: start | stop | restart"
 ;;
 esac
