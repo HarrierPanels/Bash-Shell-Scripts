@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# case statement usage
+# Case statement usage
 # export PATH="~/:$PATH" ## current session path to where the file is located
 # ASCII text executable won't accept $! - PID of the background process
-# the child proccess incremented by 25 due to $ShellScript & the progress bar
+# The child proccess incremented by 25 due to $ShellScript & the progress bar
 
 ShellScript=$(basename -- "$0")
 
