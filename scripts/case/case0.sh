@@ -1,8 +1,8 @@
-##!//bin/bash
+# No shebang #!//bin/bash
 
-# case usage
+# Case Statement usage sample
 # export PATH="~/:$PATH" ## current session path to where the file is located
-# ASCII text (no shebang) accepts $! - PID of the background process yet ps won't work correctly
+# ASCII text (no shebang) accepts $! - PID of the background process yet ps, grep, & awk won't work correctly
 
 case $1 in
 start)
