@@ -4,21 +4,23 @@
 # export PATH="~/:$PATH" ## current session path to where the file is located
 # ASCII text (no shebang) accepts $! - PID of the background process yet ps, grep, & awk won't work correctly
 
+ShellScript=$(basename -- "$0")
+
 case $1 in
 start)
-echo "$0 Started"
+echo "$ShellScript Started"
 sleep 9999
 ;;
 stop)
-echo "$0 Stopped by [PID]: $!"
+echo "$ShellScript Stopped by [PID]: $!"
 kill $!
 killall sleep
 ;;
 restart)
-$0 stop
-$0 start
+$ShellScript stop
+$ShellScript start &
 ;;
 *)
-echo "$0 usage: start | stop | restart"
+echo "$ShellScript usage: start | stop | restart"
 ;;
 esac
