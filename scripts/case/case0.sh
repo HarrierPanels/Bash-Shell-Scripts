@@ -1,4 +1,4 @@
-# No shebang #!//bin/bash
+# No shebang #!/bin/bash
 
 # Case Statement usage sample
 # export PATH="~/:$PATH" ## current session path to where the file is located
