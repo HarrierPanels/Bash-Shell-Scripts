@@ -3,7 +3,7 @@
 # Case statement usage sample
 # export PATH="~/:$PATH" ## current session path to where the file is located
 # ASCII text executable won't accept $! - PID of the background process
-# The child process incremented by 27 due to $ShellScript, the progress bar, & other variables used
+# The child process is killed via pgrep as advised by Serhi Prykhodchenko from EPAM 
 
 ShellScript=$(basename -- "$0")
 
@@ -64,10 +64,10 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
      [Yy]* )
 
      # Stop
-     # using ps, grep, & awk to kill a child process 
+     # using pgrep, ps, grep, & awk to kill a child process 
      for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
      do
-     kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
+     kill $(pgrep -P $a) 2>/dev/null
      done
 
      ## Pseudo Progress Bar ##
@@ -94,10 +94,10 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child process 
+# using pgrep, ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
-kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
+kill $(pgrep -P $a) 2>/dev/null
 done
 
 ## Pseudo Progress Bar ##
@@ -131,10 +131,10 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child process 
+# using pgrep, ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
-kill $((a+4)) $((a+5)) $((a+6)) $((a+27)) $((a+28)) 2>/dev/null
+kill $(pgrep -P $a) 2>/dev/null
 done
 
 # Removing the log file 
@@ -169,10 +169,10 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child procces 
+# using pgrep, ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
-kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
+kill $(pgrep -P $a) 2>/dev/null
 done
 
 else
