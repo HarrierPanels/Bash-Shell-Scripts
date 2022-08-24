@@ -67,7 +67,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
      # using pgrep, ps, grep, & awk to kill a child process 
      for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
      do
-     kill $(pgrep -P $a) 2>/dev/null
+     kill $(pgrep -P "$a") 2>/dev/null
      done
 
      ## Pseudo Progress Bar ##
@@ -97,7 +97,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
 # using pgrep, ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
-kill $(pgrep -P $a) 2>/dev/null
+kill $(pgrep -P "$a") 2>/dev/null
 done
 
 ## Pseudo Progress Bar ##
@@ -134,7 +134,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
 # using pgrep, ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
-kill $(pgrep -P $a) 2>/dev/null
+kill $(pgrep -P "$a") 2>/dev/null
 done
 
 # Removing the log file 
@@ -172,7 +172,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
 # using pgrep, ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
-kill $(pgrep -P $a) 2>/dev/null
+kill $(pgrep -P "$a") 2>/dev/null
 done
 
 else
