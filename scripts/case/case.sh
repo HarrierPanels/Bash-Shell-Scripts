@@ -64,7 +64,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
      [Yy]* )
 
      # Stop
-     # using ps, grep, & awk to kill a child procces
+     # using ps, grep, & awk to kill a child process
      for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
      do
      kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
@@ -94,7 +94,7 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child procces
+# using ps, grep, & awk to kill a child process
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
 kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
@@ -131,7 +131,7 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child procces
+# using ps, grep, & awk to kill a child process
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
 kill $((a+4)) $((a+5)) $((a+6)) $((a+27)) $((a+28)) 2>/dev/null
