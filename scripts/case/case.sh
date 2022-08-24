@@ -10,8 +10,7 @@ ShellScript=$(basename -- "$0")
 function help() {
 echo
 echo "$ShellScript usage: start [OPTIONS] & | stop [OPTIONS] | restart [OPTIONS] | reload"
-echo -e  "NOTE: $ShellScript should be run in background! Use & in the end of the start command.
-It's recommended to use either silent or regular mode. If the process was aborted\nor started incorrectly and you are unable to use it try the reload command."
+echo -e  "NOTE: $ShellScript should be run in background! Use & in the end of the start command.\nIf the process was aborted\nor started incorrectly and you are unable to use it try the reload command."
 echo "Example (OUTPUT messages): $ShellScript start &"
 echo
 echo "    Options:"
@@ -55,7 +54,6 @@ fi
 
 # Status check
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
-
 
    # Prompt Y / N
    while true; do
