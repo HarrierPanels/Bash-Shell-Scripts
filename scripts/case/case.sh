@@ -138,7 +138,7 @@ kill $((a+4)) $((a+5)) $((a+6)) $((a+27)) $((a+28)) 2>/dev/null
 done
 
 # Removing the log file 
-rm /tmp/"$ShellScript".tmp
+rm /tmp/"$ShellScript".tmp 2>/dev/null
 
 $ShellScript start &
 else
