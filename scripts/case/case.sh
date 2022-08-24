@@ -3,7 +3,7 @@
 # Case statement usage sample
 # export PATH="~/:$PATH" ## current session path to where the file is located
 # ASCII text executable won't accept $! - PID of the background process
-# The child process incremented by 29 due to $ShellScript, the progress bar, & other variables used
+# The child process incremented by 27 due to $ShellScript, the progress bar, & other variables used
 
 ShellScript=$(basename -- "$0")
 
