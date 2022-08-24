@@ -44,9 +44,9 @@ echo "Press ENTER to continue"
 # Creating a temporary log file
 echo "$ShellScript started: $(date)" > /tmp/"$ShellScript".tmp
 
-sleep 9999
+sleep 9999 
 
-# Removing the log file
+# Removing the log file 
 rm /tmp/"$ShellScript".tmp 2>/dev/null
 fi
 ;;
@@ -64,7 +64,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
      [Yy]* )
 
      # Stop
-     # using ps, grep, & awk to kill a child process
+     # using ps, grep, & awk to kill a child process 
      for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
      do
      kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
@@ -76,7 +76,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
      echo -n \.
      done
      echo
-   
+    
      break;;
      [Nn]* ) exit;;
      * ) echo "Please answer [y]es or [n]o.";;
@@ -94,7 +94,7 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child process
+# using ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
 kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
@@ -131,10 +131,48 @@ fi
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
 # Stop
-# using ps, grep, & awk to kill a child process
+# using ps, grep, & awk to kill a child process 
 for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
 do
 kill $((a+4)) $((a+5)) $((a+6)) $((a+27)) $((a+28)) 2>/dev/null
+done
+
+# Removing the log file 
+rm /tmp/"$ShellScript".tmp
+
+$ShellScript start &
+else
+
+$ShellScript start &
+fi
+;;
+
+"start -s")
+
+# Status check
+if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
+
+exit
+else
+
+# Creating a temporary log file
+echo "$ShellScript started: $(date)" > /tmp/"$ShellScript".tmp
+
+sleep 9999
+
+# Removing the log file 
+rm /tmp/"$ShellScript".tmp 2>/dev/null
+fi
+;;
+"stop -s")
+# Status check
+if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
+
+# Stop
+# using ps, grep, & awk to kill a child procces 
+for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
+do
+kill $((a+4)) $((a+5)) $((a+27)) 2>/dev/null
 done
 
 else
