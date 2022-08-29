@@ -5,7 +5,7 @@
 
 hn=`hostname`
 usr=`whoami`
-if dir="$HOME"; then
+if [[ dir=="$HOME" ]]; then
 dir="~"
 else
 dir="${PWD##*/}"
