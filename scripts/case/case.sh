@@ -32,7 +32,7 @@ echo "Process already running! Press ENTER to exit."
 else
 echo "Starting $ShellScript"
 
-## Pseudo Progress Bar ##
+## Progress Bar Emulation ##
 for i in {1..23}
 do sleep 0.1
 echo -n \#
@@ -57,7 +57,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
 
    # Prompt Y / N
    while true; do
-    read -p "Are you sure you want to stop $ShellScript now? [Y / N] " prompt
+    read -r -p "Are you sure you want to stop $ShellScript now? [Y / N] " prompt
      case $prompt in
      [Yy]* )
 
@@ -68,7 +68,7 @@ if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null;
      kill $(pgrep -P "$a") 2>/dev/null
      done
 
-     ## Pseudo Progress Bar ##
+     ## Progress Bar Emulation ##
      for i in {1..23}
      do sleep 0.1
      echo -n \.
@@ -98,7 +98,7 @@ do
 kill $(pgrep -P "$a") 2>/dev/null
 done
 
-## Pseudo Progress Bar ##
+## Progress Bar Emulation ##
 for i in {1..23}
 do sleep 0.1
 echo -n \.
@@ -110,7 +110,7 @@ $ShellScript start &
 else
    # Restart Prompt
    while true; do
-    read -p "Nothing to restart! Want to start $ShellScript instead? [Y / N] " prompt
+    read -r -p "Nothing to restart! Want to start $ShellScript instead? [Y / N] " prompt
 
      case $prompt in
      [Yy]* )
