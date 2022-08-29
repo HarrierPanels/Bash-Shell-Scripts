@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Konsole Emulation v.1
-# Supports commands: ls, pwd, hi
+# Supports commands: ls, pwd, hi, exit
 
 hn=`hostname`
 usr=`whoami`
