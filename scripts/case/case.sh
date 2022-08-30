@@ -145,7 +145,7 @@ $ShellScript start &
 fi
 ;;
 
-"start -s")
+"start -s" | "start --silent")
 
 # Status check
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
@@ -162,7 +162,7 @@ sleep 9999
 rm /tmp/"$ShellScript".tmp 2>/dev/null
 fi
 ;;
-"stop -s")
+"stop -s" | "stop --silent")
 # Status check
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
@@ -177,7 +177,7 @@ else
 exit
 fi
 ;;
-"restart -s")
+"restart -s" | "restart --silent")
 # Status check
 if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
 
@@ -188,50 +188,6 @@ else
 exit
 fi
 ;;
-
-"start --silent")
-
-# Status check
-if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
-
-exit
-else
-
-# Creating a temporary log file
-echo "$ShellScript started: $(date)" > /tmp/"$ShellScript".tmp
-
-sleep 9999
-
-# Removing the log file 
-rm /tmp/"$ShellScript".tmp 2>/dev/null
-fi
-;;
-"stop --silent")
-# Status check
-if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
-
-# Stop
-# using pgrep, ps, grep, & awk to kill a child process 
-for a in $(ps aux | grep "$0" | grep -v grep | awk '{print $2}')
-do
-kill $(pgrep -P "$a") 2>/dev/null
-done
-
-else
-exit
-fi
-;;
-"restart --silent")
-# Status check
-if [[ $(grep -oP "started" /tmp/"$ShellScript".tmp) =~ "started" ]] 2>/dev/null; then
-
-$ShellScript stop --silent
-$ShellScript start --silent &
-
-else
-exit
-fi
-
 *)
 help
 ;;
