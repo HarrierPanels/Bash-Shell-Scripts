@@ -1,15 +1,16 @@
 #!/bin/bash
 
 # Font style output
-info=$(tput setaf 2)
+green=$(tput setaf 2)
+yellow=$(tput setaf 226)
+bold=$(tput bold)
 error=$(tput setaf 160)
 warn=$(tput setaf 214)
-bold=$(tput bold)
-underline=$(tput smul)
 reset=$(tput sgr0)
 
 # No argument check
 if [[ -n $1 ]]; then
+
 
 # Storing the argument values and shifting over the array
 arg=$@
@@ -21,7 +22,7 @@ a=1
 # Iterating up the array for output
 while [[ a -le $# ]]; do
  for i in $@; do 
- echo "  Argument \$$a: "$i""
+ echo "  Argument \$$a: ${yellow}"$i""${reset}
  ((a++))
  done
 done
@@ -38,9 +39,9 @@ sleep 5 &
 pid=$!
 frames="/ | \\ -"
 
-while kill -0 $pid >/dev/null 2&>1; do
+while kill -0 $pid >/dev/null 2>&1; do
  for frame in $frames; do
- printf "\r$frame Calculating the sum ..."
+ printf "${bold}${green}\r$frame${reset} Calculating the sum ..."
  sleep 0.5
  done
 done
@@ -55,13 +56,13 @@ done
 rm "$0".arr1.tmp "$0".arr2.tmp
 
 # The result
-echo "  ${arr3[@]}"
+echo "  ${green}${arr3[@]}${reset}"
 
   else
-  echo "${bold}${warn}WARNING:${reset}${reset} ${bold}Digits only! Exiting.${reset}"
+  echo "${bold}${warn}WARNING:${reset} ${bold}Digits only! Exiting.${reset}"
   fi
 
 else
-echo "${bold}${error}ERROR:${reset}${reset}${reset}${bold} No arguments! Exiting.${reset}"
+echo "${bold}${error}ERROR:${reset} ${bold}No arguments! Exiting.${reset}"
 exit
 fi
