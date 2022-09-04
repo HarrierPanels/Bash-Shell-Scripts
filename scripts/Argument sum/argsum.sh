@@ -11,7 +11,6 @@ reset=$(tput sgr0)
 # No argument check
 if [[ -n $1 ]]; then
 
-
 # Storing the argument values and shifting over the array
 arg=$@
 shifted=(`shift && echo $@` $1 ) 
