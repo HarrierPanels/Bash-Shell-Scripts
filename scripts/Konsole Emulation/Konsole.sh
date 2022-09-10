@@ -19,8 +19,8 @@ IFS= read -r -p "$cmd" input
 
 case $input in
 
-ls) echo "$($input)" | tr ':' ':\n';;
-"ls "*) echo "$($input)" | tr ':' ':\n';;
+ls) $input;;
+"ls "*) $input;;
 pwd) pwd;;
 [Hh][i]) echo "hi $usr!";;
 exit) exit;;
