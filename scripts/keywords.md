@@ -1,8 +1,8 @@
 How to remove a record with grep
 
-grep -F -v test example.txt > example.txt.tmp && mv example.txt.tmp example.txt && rm example.txt.tmp
-also sed
-sed -i '/test/d' example.txt
+    grep -F -v test example.txt > example.txt.tmp && mv example.txt.tmp example.txt && rm example.txt.tmp
+    also sed
+    sed -i '/test/d' example.txt
 
 get execution time
 
