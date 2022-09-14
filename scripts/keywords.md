@@ -140,7 +140,7 @@ Bash functions and its params
 function fubction1 {
 echo "function"
 }
-function1()
+function1
 gives function
 
 read
@@ -151,14 +151,60 @@ reads input
 '$a' - string $a
 
 arrays in bash
+array=($a $b $c)
+
+${array[@]}
+arr=() 	Create an empty array
+arr=(1 2 3) 	Initialize array
+${arr[2]} 	Retrieve third element
+${arr[@]} 	Retrieve all elements
+${!arr[@]} 	Retrieve array indices
+${#arr[@]} 	Calculate array size
+arr[0]=3 	Overwrite 1st element
+arr+=(4) 	Append value(s)
+str=$(ls) 	Save ls output as a string
+arr=( $(ls) ) 	Save ls output as an array of files
+${arr[@]:s:n} 	Retrieve n elements starting at index s
+
 readonly var
-++ -- %
+$ readonly PI=3.14
+$ unset PI
+-bash: unset: PI: cannot unset: readonly variable
+$ cat << EOF| sudo gdb
+attach $$
+call unbind_variable("PI")
+detach
+EOF
+$ echo $PI
+
+++ incr -- decr % (modulo)
+
 $( ... )
+var
+
 a = $b + 10
+string $b+10
+
 UID, $UID
+user id
+
 #!ls
+ls
+...
+
 ${list[-1]}
+last array elemen
 set unset
+var
+
 ping exit codes
+
+    Success: code 0
+    No reply: code 1
+    Other errors: code 2
+
 echo -n
+string
+
 1>&2 STDOUT STDERR STDIN
+STDOUT > STDERR
