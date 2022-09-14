@@ -189,8 +189,8 @@ UID, $UID
 user id
 
 #!ls
-ls
-...
+    ls
+    ...
 
 ${list[-1]}
     last array elemen
