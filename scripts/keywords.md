@@ -1,9 +1,11 @@
 How to remove a record with grep
+
 grep -F -v test example.txt > example.txt.tmp && mv example.txt.tmp example.txt && rm example.txt.tmp
 also sed
 sed -i '/test/d' example.txt
 
 get execution time
+
 start=`date +%s`
 stuff
 end=`date +%s`
@@ -11,11 +13,13 @@ end=`date +%s`
 runtime=$(($end-$start))
 
 environment variables
+
 env 
 printenv
 export
 
 ssh-key
+
 ssh-keygen
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ssh-agent -s
@@ -23,6 +27,7 @@ ssh-add ~/.ssh/id_ed25519
 ssh
 
 Shebang
+
 #!/bin/bash 
 #!/bin/env python3 
 
@@ -37,6 +42,7 @@ You can revert the string and then print 1st character. Itself cut can't work fr
 echo "Your string ABC" | rev | cut -c 1
 
 echo -e
+
 allows using "\n"
 
 head
@@ -207,4 +213,5 @@ echo -n
     string
 
 1>&2 STDOUT STDERR STDIN
+    
     STDOUT > STDERR
