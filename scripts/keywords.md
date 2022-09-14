@@ -193,9 +193,9 @@ ls
 ...
 
 ${list[-1]}
-last array elemen
-set unset
-var
+    last array elemen
+    set unset
+    var
 
 ping exit codes
 
@@ -204,7 +204,7 @@ ping exit codes
     Other errors: code 2
 
 echo -n
-string
+    string
 
 1>&2 STDOUT STDERR STDIN
-STDOUT > STDERR
+    STDOUT > STDERR
