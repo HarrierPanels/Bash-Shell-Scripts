@@ -3,7 +3,13 @@ for j in $*; do
 printf "$j" 
 sleep 0.1
 done
-    
+}
+
+gap() {
+#for i in $*; do
+printf "$2"
+sleep 0.1
+#done
 }
 
 emu() {
@@ -22,7 +28,10 @@ done
 }
 
 emu2() {
-for j in $2; do 
+printf "$2"
+sleep 0.1
+
+for j in $3; do 
 printf "$j" 
 sleep 0.1
 done
@@ -42,18 +51,20 @@ done
 
 emu3() {
 
-bar $2
+printf "$2"
+sleep 0.1
+bar $3
 
 sleep 5 &
 pid=$!
 
 while kill -0 $pid >/dev/null 2>&1; do 
 for i in $1; do
-printf "\r      $i" 
+printf "\r$i" 
 sleep 0.1
 done
 done
 
 }
-#emu "/ | \\ -" " L o a d i n g . . ."
-emu3 "/ | \\ -" "\tL o a d i n g . . ."
+
+emu2 "/ | \\ -" "  " "L o a d i n g . . ."
