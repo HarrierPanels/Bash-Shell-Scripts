@@ -30,8 +30,8 @@ parse() {
 wiki_url="http://en.wikipedia.org/wiki/"
 wiki_html="wiki-"
 
-# 10 Headliners
-words=$(curl -Ls $1 | grep -oP '<(h[1-9])(?:\s[^>]*)?>\K.*?(?=</(h[1-9])>)' | grep -oE '[a-zA-Z]{10,}' | sort | uniq -i | head -n 10)
+# 8 Headliners
+words=$(curl -Ls $1 | grep -oP '<(h[1-9])(?:\s[^>]*)?>\K.*?(?=</(h[1-9])>)' | grep -oE '[a-zA-Z]{10,}' | sort | uniq -i | head -n 8)
 
 for word in $words; do
 echo $word
