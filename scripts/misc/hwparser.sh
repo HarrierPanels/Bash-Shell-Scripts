@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Progress Emulation
 emu() {
 printf "  "
 sleep 0.1
