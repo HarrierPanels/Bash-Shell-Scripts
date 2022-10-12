@@ -6,7 +6,8 @@ pipeline {
         sh """
 	 jenkins --version
 	 git --version
-	 php --version 
+	 php --version
+	""" 
       }
     }
   }
