@@ -13,7 +13,7 @@ pipeline {
   post {
     always {
         junit(
-          allowEmptyResults: true,
+          allowEmptyResults: true, 
           testResults: '**/build/test-results/test/*.xml'
         )
     }
