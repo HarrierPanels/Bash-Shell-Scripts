@@ -47,6 +47,7 @@ done
 #printf "$j" 
 #sleep 0.1
 done
+echo ""
 }
 
 emu3() {
@@ -67,4 +68,4 @@ done
 
 }
 
-emu2 "/ | \\ -" "  " "L o a d i n g . . ."
+#emu2 "/ | \\ -" "  " "L o a d i n g . . ."

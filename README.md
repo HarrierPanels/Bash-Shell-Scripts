@@ -2,8 +2,6 @@ Bash Shell Scripts
 
 The easiest, most common sense shell scripts.
 
-Completely confused by Chef? Blowing your brains out over Ansible? Lost control of your Puppets? What're these all?
-
 Activity
 
 While this project served a very specific purpose - studying, ongoing development continues. Pull requests will be accepted.
