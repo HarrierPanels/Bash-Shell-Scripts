@@ -16,7 +16,7 @@ Folder structure:
 
     /files (optional) - files to be transferred to servers (nginx.conf, ssh keys, database.yml, etc.)
 
-THAT WAS EASY.
+THAT WAS EASY!
 
 Contributing
 
