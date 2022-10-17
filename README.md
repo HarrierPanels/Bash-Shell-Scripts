@@ -8,7 +8,7 @@ While this project served a very specific purpose - studying, ongoing developmen
 
 Features
 
-    Whatever. Easy to use
+    Whatever. Easy to use.
 
 Folder structure:
 
